@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:native_updater/native_updater.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'native_updater example',
       home: Home(),
     );
@@ -14,6 +16,8 @@ class MyApp extends StatelessWidget {
 }
 
 class Home extends StatefulWidget {
+  const Home({Key? key}) : super(key: key);
+
   @override
   _HomeState createState() => _HomeState();
 }
@@ -48,7 +52,7 @@ class _HomeState extends State<Home> {
           iOSCloseButtonLabel: 'Exit',
           errorText: "Error",
           errorCloseButtonLabel: "Close",
-          errorSubtitle: "This version of the app isn't legit"
+          errorSubtitle: "This version of the app isn't legit",
         );
       } else if (serverLatestVersion > localVersion) {
         NativeUpdater.displayUpdateAlert(
@@ -67,10 +71,10 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Your App'),
+        title: const Text('Your App'),
       ),
-      body: Center(
-        child: Text('Testing...'),
+      body: const Center(
+        child: Text('Native Updater Example'),
       ),
     );
   }
