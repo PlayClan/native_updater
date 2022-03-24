@@ -1,6 +1,6 @@
 # native_updater
 
-[![pub package](https://img.shields.io/pub/v/native_updater.svg)](https://pub.dev/packages/native_updater)
+Forked from [ofload/native_updater](https://github.com/ofload/native_updater "Original package")
 
 > Flutter package for prompting users to update with a native dialog whether using the app store version or any version at the user's discretion.
 
@@ -8,17 +8,16 @@ When a latest app version is available via user defined logic, a simple alert pr
 
 The UI comes in two flavors: Material Design for Android and Cupertino for iOS. The [UpdateMaterialAlert](#material-alert-example) widget is used to display the native Android alert prompt, and the [UpdateCupertinoAlert](#cupertino-alert-example) widget is used to display the native iOS alert prompt.
 
-## Installation via GitHub (for test only)
+## Installation via GitHub
 
 ```yaml
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^0.1.3
 
-  # Add this inside pubspec.yaml
+  # Add the follwing line inside pubspec.yaml:
   native_updater:
-    git: https://github.com/loadsmileau/native_updater
+    git: https://github.com/Jeferson505/native_updater.git
 ```
 
 ## Setup
@@ -29,7 +28,7 @@ Already good to go.
 
 ### iOS
 
-To be able to show your App Name in the Cupertino Alert Dialog, add the following keys to your _Info.plist_ file, located in `<project root>/ios/Runner/Info.plist`:
+To be able to show your App Name in the Cupertino Alert Dialog, add the following key, if there isn't, to your _Info.plist_ file, located in `<project root>/ios/Runner/Info.plist`:
 
 ```xml
 <key>CFBundleDisplayName</key>
@@ -54,7 +53,6 @@ NativeUpdater.displayUpdateAlert(
   context,
   forceUpdate: true,
   appStoreUrl: '<Your App Store URL>',
-  playStoreUrl: '<Your Play Store URL>',
   iOSDescription: '<Your iOS Description>',
   iOSUpdateButtonLabel: '<Your iOS Update Button Label>',
   iOSCloseButtonLabel: '<Your iOS Close Button Label>',
@@ -75,8 +73,6 @@ NativeUpdater.displayUpdateAlert(
 
 **appStoreUrl** is to launch your App Store URL if you're developing for iOS. Follow this [link](https://support.google.com/admob/answer/3086746?hl=en "Find your app store URL") on how to find your App Store URL.
 
-**playStoreUrl** is to launch your Play Store URL if you're developing for Android. Follow this [link](https://support.google.com/admob/answer/3086746?hl=en "Find your app store URL") on how to find your Play Store URL.
-
 **iOSDescription** is to use your custom alert description on `UpdateCupertinoAlert`. The default is `<App Name> requires that you update to the latest version. You cannot use this app until it is updated.` or `<App Name> recommends that you update to the latest version. You can keep using this app while downloading the update.`
 
 **iOSUpdateButtonLabel** is used to set your custom Update Button Label on `UpdateCupertinoAlert`. The default is `Update`.
@@ -93,12 +89,14 @@ NativeUpdater.displayUpdateAlert(
 import 'package:flutter/material.dart';
 import 'package:native_updater/native_updater.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'native_updater example',
       home: Home(),
     );
@@ -106,6 +104,8 @@ class MyApp extends StatelessWidget {
 }
 
 class Home extends StatefulWidget {
+  const Home({Key? key}) : super(key: key);
+
   @override
   _HomeState createState() => _HomeState();
 }
@@ -135,17 +135,18 @@ class _HomeState extends State<Home> {
           context,
           forceUpdate: true,
           appStoreUrl: '<Your App Store URL>',
-          playStoreUrl: '<Your Play Store URL>',
           iOSDescription: '<Your iOS description>',
           iOSUpdateButtonLabel: 'Upgrade',
           iOSCloseButtonLabel: 'Exit',
+          errorText: "Error",
+          errorCloseButtonLabel: "Close",
+          errorSubtitle: "This app version wasn't downloaded from Play Store",
         );
       } else if (serverLatestVersion > localVersion) {
         NativeUpdater.displayUpdateAlert(
           context,
           forceUpdate: false,
           appStoreUrl: '<Your App Store URL>',
-          playStoreUrl: '<Your Play Store URL>',
           iOSDescription: '<Your description>',
           iOSUpdateButtonLabel: 'Upgrade',
           iOSIgnoreButtonLabel: 'Next Time',
@@ -158,10 +159,10 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Your App'),
+        title: const Text('Your App'),
       ),
-      body: Center(
-        child: Text('Testing...'),
+      body: const Center(
+        child: Text('Native Updater Example'),
       ),
     );
   }
