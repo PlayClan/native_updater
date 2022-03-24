@@ -1,3 +1,12 @@
+## [0.1.2] - 24/03/2022
+
+- Update dependencies
+- Update example project
+- Remove unused file
+- Update README.md:
+    - Remove mentions of no longer exist parameters
+    - Update full example section
+
 ## [0.1.1] - 19/12/2021
 
 - Keeping dependencies up-to-date
@@ -5,6 +14,7 @@
 - Improving example code
 
 ## [0.1.0] - 16/05/2021
+
 This is a major change as we are forcing an upgrade on the SDK.
 
 To comply with the new SDK we had to change:
@@ -13,6 +23,7 @@ To comply with the new SDK we had to change:
 - Migrate a few params to optional
 
 ## [0.0.4] - 08/02/2021
+
 - Adding an option to change the Alert dialog tile
 
 ## [0.0.3] - 04/01/2020
