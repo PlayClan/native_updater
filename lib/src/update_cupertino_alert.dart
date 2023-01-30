@@ -39,7 +39,7 @@ class UpdateCupertinoAlert extends StatelessWidget {
 
     Widget updateButton = CupertinoDialogAction(
       child: Text(updateButtonLabel),
-      onPressed: () => launch(appStoreUrl),
+      onPressed: () => launchUrl(Uri.parse(appStoreUrl)),
     );
 
     return CupertinoAlertDialog(

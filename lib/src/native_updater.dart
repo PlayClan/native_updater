@@ -115,10 +115,12 @@ class NativeUpdater {
         if (_forceUpdate) {
           InAppUpdate.performImmediateUpdate().catchError((e) {
             _onCatchError(e);
+            return AppUpdateResult.inAppUpdateFailed;
           });
         } else {
           InAppUpdate.startFlexibleUpdate().catchError((e) {
             _onCatchError(e);
+            return AppUpdateResult.inAppUpdateFailed;
           });
         }
       }

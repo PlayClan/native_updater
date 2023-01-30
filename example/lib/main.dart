@@ -10,19 +10,19 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       title: 'native_updater example',
-      home: Home(),
+      home: _Home(),
     );
   }
 }
 
-class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+class _Home extends StatefulWidget {
+  const _Home({Key? key}) : super(key: key);
 
   @override
   _HomeState createState() => _HomeState();
 }
 
-class _HomeState extends State<Home> {
+class _HomeState extends State<_Home> {
   @override
   void initState() {
     super.initState();
