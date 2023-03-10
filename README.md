@@ -17,7 +17,9 @@ dependencies:
 
   # Add the follwing line inside pubspec.yaml:
   native_updater:
-    git: https://github.com/Jeferson505/native_updater.git
+    git:
+      url: https://github.com/Jeferson505/native_updater.git
+      ref: v0.1.3
 ```
 
 ## Setup
