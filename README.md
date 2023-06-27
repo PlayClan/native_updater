@@ -19,7 +19,7 @@ dependencies:
   native_updater:
     git:
       url: https://github.com/Jeferson505/native_updater.git
-      ref: v0.1.4
+      ref: v0.1.5
 ```
 
 ## Setup

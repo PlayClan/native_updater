@@ -1,3 +1,9 @@
+## [0.1.5] - 27/06/2023
+
+- Update dependencies
+- Update Kotlin's version to 1.8.22
+- Update minSdkVersion to 19
+
 ## [0.1.4] - 31/05/2023
 
 - Update dependencies
