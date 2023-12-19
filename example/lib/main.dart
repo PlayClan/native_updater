@@ -4,19 +4,21 @@ import 'package:native_updater/native_updater.dart';
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
       title: 'native_updater example',
-      home: _Home(),
+      home: _Home(
+        key: Key('home'),
+      ),
     );
   }
 }
 
 class _Home extends StatefulWidget {
-  const _Home({Key? key}) : super(key: key);
+  const _Home({super.key});
 
   @override
   _HomeState createState() => _HomeState();
